@@ -1,10 +1,8 @@
-angular.module('roomiesApp', [
+var app = angular.module('roomiesApp', [
   "ngRoute",
   "mobile-angular-ui",
-  ])
-  .config(function($routeProvider) {
-      $routeProvider.when('/', {
-        // ...
-      });
-        // ...
-  });
+]);
+  
+app.config(function($routeProvider) {
+    $routeProvider.when('/', { templateUrl: 'Templates/home.html' });
+});
