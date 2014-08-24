@@ -5,4 +5,6 @@ var app = angular.module('roomiesApp', [
   
 app.config(function($routeProvider) {
     $routeProvider.when('/', { templateUrl: 'Templates/home.html' });
+    $routeProvider.when('/bills', { templateUrl: 'Templates/home.html' });
+    $routeProvider.when('/billsPay', { templateUrl: 'Templates/home.html' });
 });
