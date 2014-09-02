@@ -6,11 +6,15 @@ var app = angular.module('roomiesApp', [
   
 app.factory('getMessagesFactory', function ($http) {
   
-  var database = new ODatabase('http://localhost:2480/Roomies');
-  database.open("admin", "admin");
-  var queryResult = database.query("select from Message order by publish_date_time desc", null, '*:-1');
+  var returnData = null;
   
-  return queryResult;
+  return $http.get('/messages');
+  
+  //var database = new ODatabase('http://localhost:2480/Roomies');
+  //database.open("admin", "admin");
+  //var queryResult = database.query("select from Message order by publish_date_time desc", null, '*:-1');
+  
+  //return returnData;
 });
   
 app.config(function($routeProvider) {
@@ -21,5 +25,7 @@ app.config(function($routeProvider) {
   
 
 app.controller('MessagesController', function($scope, $http, getMessagesFactory) {
-  $scope.messages = getMessagesFactory.result;
+  getMessagesFactory.success(function(data){
+    $scope.messages = data;
+  });
 });
