@@ -1,0 +1,17 @@
+<div class="scrollable" ng-controller="MessagesController">
+  <div class="scrollable-content">
+    <div class="panel panel-default message-style">
+      <div class="panel-heading">הודעה חשובה</div>
+      <div class="panel-body">
+        הודעה הודעה הודעה
+      </div>
+    </div>
+    <div ng-repeat="msg in messages" class="panel {{msg.color.bootstrap_name}} message-style">
+      <div class="panel-heading">{{msg.title}} ({{msg.publish_date_time}})</div>
+      <div class="panel-body">
+        {{msg.content}}<br/>
+        -- {{msg.sender.first_name}} {{msg.sender.last_name}}
+      </div>
+    </div>
+  </div>
+</div>
